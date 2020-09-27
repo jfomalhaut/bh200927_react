@@ -6,7 +6,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
-				exclued: /node_module/,
+				exclude: /node_modules/,
 				use: {
 					loader: "babel-loader",
 					options: {
@@ -27,6 +27,6 @@ module.exports = {
 	devServer: {
 		contentBase: "./dist",
 		port: 3000,
-		historyApiFalback: true
+		historyApiFallback: true
 	}
 }

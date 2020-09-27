@@ -19,3 +19,9 @@ babel
 babel, webpack, react
 
 -------------------------------------------------------------------------------
+
+package.json에서 수정할 부분.
+
+1. 필요한 모듈을 설치한다(babe, webpack, react)
+2. babel에 대한 설정을 추가.
+3. webpack server를 시작할 script를 추가.
