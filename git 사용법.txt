@@ -1,0 +1,16 @@
+
+
+git 사용하는 법.
+받은 링크를 내 로컬 컴퓨터에 설치하는 방법(clone하는 방법)
+
+A. clone하는 법
+$ git clone https://github.com/jfomalhaut/bh200927_react.git
+
+B. pull 하는 방법 (받는 방법)
+$ git pull, git pull origin master
+
+C. push 하는 방법 (업로드 하는 방법)
+$ git pull
+$ git add .
+$ git commit -m "코멘트"
+$ git push
