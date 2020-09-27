@@ -1,5 +1,4 @@
-module.export = {
-  // 시작하는부분
+module.exports = {
   entry: ['./src/index.js'],
   module: {
     rules: [

@@ -20,6 +20,7 @@ babel, webpack, react
 
 -------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 
 
 package.json에서 수정할 부분.
@@ -27,3 +28,10 @@ package.json에서 수정할 부분.
 1. 필요한 모듈을 설치한다(babel,webpack,react)
 2. babel에 대한 설정을 추가
 3. webpack server를 시작할 script를 추가.
+=======
+package.json에서 수정할 부분.
+
+1. 필요한 모듈을 설치한다(babe, webpack, react)
+2. babel에 대한 설정을 추가.
+3. webpack server를 시작할 script를 추가.
+>>>>>>> 68fc565847a7229853e614f7bd6637a46c719734
