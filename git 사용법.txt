@@ -14,3 +14,5 @@ $ git pull
 $ git add .
 $ git commit -m "코멘트"
 $ git push
+
+잘됩니다.
