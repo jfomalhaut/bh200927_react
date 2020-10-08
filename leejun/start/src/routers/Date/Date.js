@@ -12,7 +12,7 @@ const Date2 = () => {
 		ev.preventDefault();
 		console.log(start);
 		console.log(end);
-	}
+	};
 
 	return (
 		<div>
