@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom';
-import { Data, Home, List } from './routers';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { Data, Home, List, State, Input, Date } from './routers';
 import { Navigation } from './components';
 
 const App = () => {
@@ -16,7 +16,10 @@ const App = () => {
 					<List history={history} match={match} location={location} />
 				)} />
 				<Route path="/data/:name" component={Data} />
-				<Redirect to="/home" />
+				<Route path="/state" component={State} />
+				<Route path="/input" component={Input} />
+				<Route path="/date" component={Date} />
+				<Redirect to="/date" />
 			</Switch>
 		</Router>
 	);

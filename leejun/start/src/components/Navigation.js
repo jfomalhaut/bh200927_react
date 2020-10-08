@@ -13,6 +13,15 @@ const Navigation = () => {
 			<li>
 				<Link to="/data">Data</Link>
 			</li>
+			<li>
+				<Link to="/state">State</Link>
+			</li>
+			<li>
+				<Link to="/input">Input</Link>
+			</li>
+			<li>
+				<Link to="/date">Date</Link>
+			</li>
 		</ul>
 	);
 };

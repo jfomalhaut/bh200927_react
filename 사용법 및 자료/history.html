@@ -4,10 +4,19 @@
 		var obj = {
 			history: '홍길동',
 			match: 20,
-			location: '조선'
+			location2: '조선',
+			items: {
+				data: 1
+			}
 		};
 
-		test(obj);
+		const { history, match, location2, items: { data } } = obj;
+
+		console.log(data);
+
+
+
+		// test(obj);
 
 		function test({ history }) {
 			console.log(history);
