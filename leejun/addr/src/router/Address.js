@@ -8,7 +8,8 @@ const VIEW = 10;
 
 const Address = () => {
 	const [list, setList] = useState([]);
-	const [keyword, setKeyword] = useState('');
+	const [keyword, setKeyword] = useState(''); // input에 대한 내용
+	const [keyword2, setKeyword2] = useState(''); // 서치용
 	const [currentPage, setCurrentPage] = useState(1);
 	const [total, setTotal] = useState(0);
 
@@ -25,8 +26,7 @@ const Address = () => {
 		// 	keyword,
 		// 	resultType: 'json'
 		// };
-
-		Axios.get(`${REQUEST_URL}?confmKey=${CONFIRM_KEY}&currentPage=${currentPage}&countPerPage=${VIEW}&resultType=json&keyword=${keyword}`).then(res => {
+		Axios.get(`${REQUEST_URL}?confmKey=${CONFIRM_KEY}&currentPage=${currentPage}&countPerPage=${VIEW}&resultType=json&keyword=${keyword2}`).then(res => {
 			const { data: { results: { juso, common: { totalCount } } } } = res;
 			setList(juso);
 			setTotal(totalCount);
@@ -41,7 +41,7 @@ const Address = () => {
 
 	const onSubmit = (ev) => {
 		ev.preventDefault();
-		search();
+		setKeyword2(keyword);
 	};
 
 	const prev = () => {
@@ -53,10 +53,10 @@ const Address = () => {
 	};
 
 	useEffect(() => {
-		if (keyword !== '') {
+		if (keyword2 !== '') {
 			search();
 		}
-	}, [currentPage]);
+	}, [currentPage, keyword2]);
 
 	return (
 		<Form onSubmit={onSubmit}>
@@ -72,8 +72,15 @@ const Address = () => {
 					</li>
 				))}
 			</ul>
-			<span onClick={prev}>이전</span>
-			<span onClick={next}>다음</span>
+			{total > 0 && (
+				<>
+					{currentPage !== 1 && (
+						<span onClick={prev}>이전</span>
+					)}
+					{currentPage}
+					<span onClick={next}>다음</span>
+				</>
+			)}
 		</Form>
 	);
 };
@@ -124,6 +131,7 @@ const Form = styled.form`
 
 			div {
 				font-size: 20px;
+
 				&:first-child {
 					width: 100px;
 					flex-shrink: 0;
