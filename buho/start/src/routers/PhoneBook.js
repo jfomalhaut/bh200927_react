@@ -53,8 +53,8 @@ const PhoneBook = () => {
       <br />
       <button onClick={onInsert}>입력</button>
       <ul>
-        {list.map((item) => (
-          <li key={item.id}>
+        {list.map((item, index) => (
+          <li key={`PHONE_BOOK${index}`}>
             이름:{item.username} | 주소:{item.phonenumber} | 회사이름:
             {item.companyname}
           </li>
