@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import styled from 'styled-components';
 
@@ -10,6 +10,7 @@ const Address = () => {
 	const [list, setList] = useState([]);
 	const [keyword, setKeyword] = useState('');
 	const [currentPage, setCurrentPage] = useState(1);
+	const [total, setTotal] = useState(0);
 
 	const onChangeKeyword = (ev) => {
 		const { target: { value } } = ev;
@@ -17,29 +18,45 @@ const Address = () => {
 	};
 
 	const search = () => {
-		const payload = {
-			confmKey: CONFIRM_KEY,
-			currentPage, 
-			countPerPage: VIEW ,
-			keyword,
-			resultType: 'json'
-		};
+		// const payload = {
+		// 	confmKey: CONFIRM_KEY,
+		// 	currentPage, 
+		// 	countPerPage: VIEW ,
+		// 	keyword,
+		// 	resultType: 'json'
+		// };
 
 		Axios.get(`${REQUEST_URL}?confmKey=${CONFIRM_KEY}&currentPage=${currentPage}&countPerPage=${VIEW}&resultType=json&keyword=${keyword}`).then(res => {
-			const { data: { results: { juso, common } } } = res;
-			console.log(res);
+			const { data: { results: { juso, common: { totalCount } } } } = res;
 			setList(juso);
-		}).catch(error => {
-			console.log(error);
-		}).finally(() => {
-			console.log('done');
+			setTotal(totalCount);
 		});
-	}
+		
+		// .catch(error => {
+		// 	console.log(error);
+		// }).finally(() => {
+		// 	console.log('done');
+		// });
+	};
 
 	const onSubmit = (ev) => {
 		ev.preventDefault();
 		search();
 	};
+
+	const prev = () => {
+		setCurrentPage(currentPage - 1);
+	};
+
+	const next = () => {
+		setCurrentPage(currentPage + 1);
+	};
+
+	useEffect(() => {
+		if (keyword !== '') {
+			search();
+		}
+	}, [currentPage]);
 
 	return (
 		<Form onSubmit={onSubmit}>
@@ -48,13 +65,15 @@ const Address = () => {
 				<button>검색</button>
 			</div>
 			<ul>
-				{list.map(item => (
-					<li>
-						<div>{item.zipNo}</div>
+				{list.map((item, index) => (
+					<li key={`ADDRESS_ITEM${index}`}>
+						<div>[{item.zipNo}]</div>
 						<div>{item.roadAddrPart1}</div>
 					</li>
 				))}
 			</ul>
+			<span onClick={prev}>이전</span>
+			<span onClick={next}>다음</span>
 		</Form>
 	);
 };
@@ -64,6 +83,21 @@ export default Address;
 const Form = styled.form`
 	width: 600px;
 	margin: 100px auto;
+	& > span {
+		width: 80px;
+		text-align: center;
+		background: #bbb;
+		color: white;
+		font-size: 20px;
+		padding: 10px 0;
+		display: inline-block;
+		margin: 0 10px;
+		cursor: pointer;
+		user-select: none;
+		&:hover {
+			background: #666;
+		}
+	}
 	& > div {
 		display: flex;
 		button {
