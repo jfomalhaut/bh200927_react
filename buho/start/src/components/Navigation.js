@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -8,10 +8,19 @@ const Navigation = () => {
         <Link to="/home">Home</Link>
       </li>
       <li>
-        <Link to="/list">List</Link>
+        <Link to="/data">Data</Link>
       </li>
       <li>
-        <Link to="/data">Data</Link>
+        <Link to="/state">State</Link>
+      </li>
+      <li>
+        <Link to="/input">Input</Link>
+      </li>
+      <li>
+        <Link to="/date">Date</Link>
+      </li>
+      <li>
+        <Link to="/phonebook">PhoneBook</Link>
       </li>
     </ul>
   );

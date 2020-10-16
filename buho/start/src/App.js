@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
-import { Home, List, Data, Items1, Items2, Items3 } from './routers';
-import Navigation from './components/Navigation';
-import Item from './routers/Items/Item';
+} from "react-router-dom";
+import { Home, Data, State, Input, Date, PhoneBook } from "./routers";
+import Navigation from "./components/Navigation";
 
 const App = () => {
   return (
@@ -15,13 +14,12 @@ const App = () => {
       <Navigation />
       <Switch>
         <Route path="/home" component={Home} />
-        <Route path="/list" component={List} />
         <Route path="/data/:name" component={Data} />
-        <Route path="/item" component={Item} />
-        <Route path="/items1" component={Items1} />
-        <Route path="/items2" component={Items2} />
-        <Route path="/items3" component={Items3} />
-        <Redirect to="/home" />
+        <Route path="/state" component={State} />
+        <Route path="/input" component={Input} />
+        <Route path="/date" component={Date} />
+        <Route path="/phonebook" component={PhoneBook} />
+        <Redirect to="/state" />
       </Switch>
     </Router>
   );

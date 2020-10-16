@@ -1,4 +1,3 @@
-import Navigation from './Navigation';
-import Navigation2 from './Navigation2';
+import Navigation from "./Navigation";
 
-export { Navigation, Navigation2 };
+export { Navigation };

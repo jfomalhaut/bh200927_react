@@ -1,8 +1,8 @@
-import Home from './Home';
-import List from './List';
-import Data from './Data';
-import Items1 from './Items/Item1';
-import Items2 from './Items/Item2';
-import Items3 from './Items/Item3';
+import Home from "./Home";
+import Data from "./Data";
+import State from "./State";
+import Input from "./Input";
+import Date from "./Date/Date";
+import PhoneBook from "./PhoneBook";
 
-export { Home, List, Data, Items1, Items2, Items3 };
+export { Home, Data, State, Input, Date, PhoneBook };
