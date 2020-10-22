@@ -1,14 +1,26 @@
 import mongoose from "mongoose";
 import moment from "moment";
 
-// Create Schema
 const PromotionSchema = new mongoose.Schema({
-  promotiontype: {
+  branch_name: {
     type: String,
-    enum: ["전단행사", "엔드행사", "저회전행사"],
-    default: "전단행사 ",
+    required: true,
+    default: "대구지점",
   },
-  supermarketname: {
+  promotion_type: {
+    type: String,
+    required: true,
+    index: true,
+  },
+  store_name: {
+    type: String,
+    required: true,
+  },
+  supermarket_name: {
+    type: String,
+    required: true,
+  },
+  supermarket_address: {
     type: String,
     required: true,
   },
@@ -20,26 +32,29 @@ const PromotionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  productname: {
+  product_name: {
     type: String,
     required: true,
-    index: true,
   },
-  enterquantity: {
-    type: Number,
-    required: true,
-  },
-  prquantity: {
-    type: Number,
-    required: true,
-  },
-
-  saleprice: {
-    type: Number,
-    required: true,
-  },
-  remark: {
+  sale_price: {
     type: String,
+    required: true,
+  },
+  enter_value: {
+    type: Number,
+    required: true,
+  },
+  pr_value: {
+    type: Number,
+    required: true,
+  },
+  date: {
+    type: String,
+    default: moment().format("YYYY-MM-DD hh:mm:ss"),
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "category",
   },
   comments: [
     {
@@ -47,10 +62,6 @@ const PromotionSchema = new mongoose.Schema({
       ref: "comment",
     },
   ],
-  date: {
-    type: String,
-    default: moment().format("YYYY-MM-DD hh:mm:ss"),
-  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",

@@ -3,19 +3,19 @@ import moment from "moment";
 
 // Create Schema
 const UserSchema = new mongoose.Schema({
-  branchname: {
+  branch_name: {
     type: String,
     required: true,
   },
-  username: {
+  store_name: {
     type: String,
     required: true,
   },
-  storename: {
+  user_name: {
     type: String,
     required: true,
   },
-  userid: {
+  user_id: {
     type: String,
     required: true,
     unique: true,
@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ["Master", "Manager", "User"],
+    enum: ["Master", "SubMaster", "User"],
     default: "User",
   },
   register_date: {
@@ -35,9 +35,9 @@ const UserSchema = new mongoose.Schema({
   },
   comments: [
     {
-      promotion_id: {
+      post_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "promotions",
+        ref: "posts",
       },
       comment_id: {
         type: mongoose.Schema.Types.ObjectId,
@@ -45,10 +45,10 @@ const UserSchema = new mongoose.Schema({
       },
     },
   ],
-  promotion: [
+  posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "promotion",
+      ref: "posts",
     },
   ],
 });
