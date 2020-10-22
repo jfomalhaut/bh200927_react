@@ -9,7 +9,6 @@ import PostWrite from "../routes/nomalRoute/PostWrite";
 import PostDetail from "../routes/nomalRoute/PostDetail";
 import Search from "../routes/nomalRoute/Search";
 import CategoryResult from "../routes/nomalRoute/CategoryResult";
-import PromotionWrite from "../routes/nomalRoute/PromotionWrite";
 
 const MyRouter = () => {
   return (
@@ -22,7 +21,6 @@ const MyRouter = () => {
           <Route path="/post" exact component={PostWrite} />
           <Route path="/post/:id" exact component={PostDetail} />
           <Route path="/post/:categoryName" exact component={CategoryResult} />
-          <Route path="/promotion" exact component={PromotionWrite} />
           <Route path="/search/:searchTerm" exact component={Search} />
           <Redirect from="*" to="/" />
         </Switch>

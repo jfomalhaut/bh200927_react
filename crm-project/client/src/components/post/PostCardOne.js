@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import {
-  Badge,
-  Button,
   Card,
-  CardBody,
   CardImg,
+  CardBody,
   CardTitle,
+  Button,
+  Badge,
   Row,
 } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -26,8 +26,8 @@ const PostCardOne = ({ posts }) => {
                   <Card className="mb-3">
                     <CardImg top alt="카드이미지" src={fileUrl} />
                     <CardBody>
-                      <CardTitle className=" text-truncate d-flex justify-content-between">
-                        <span className="text-truncate">{title}</span>
+                      <CardTitle className="text-truncate d-flex justify-content-between">
+                        <span className="text-truncate">{title} </span>
                         <span>
                           <FontAwesomeIcon icon={faMouse} />
                           &nbsp;&nbsp;
@@ -36,7 +36,7 @@ const PostCardOne = ({ posts }) => {
                       </CardTitle>
                       <Row>
                         <Button color="primary" className="p-2 btn-block">
-                          More<Badge color="light">{comments.length}</Badge>
+                          More <Badge color="light">{comments.length}</Badge>
                         </Button>
                       </Row>
                     </CardBody>
