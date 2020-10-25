@@ -1,5 +1,5 @@
 {
-  "name": "start",
+  "name": "samyang",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "css-loader": "^4.3.0",
+    "dotenv-webpack": "^4.0.0",
     "react": "^16.13.1",
     "react-datepicker": "^3.2.2",
     "react-dom": "^16.13.1",
