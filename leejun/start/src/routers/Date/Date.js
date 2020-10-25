@@ -39,3 +39,8 @@ const Date2 = () => {
 };
 
 export default Date2;
+
+product_name,
+      sale_price,
+      enter_value,
+      pr_value,
