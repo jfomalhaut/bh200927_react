@@ -21,10 +21,16 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(pdf|jpg|png|gif|svg|ico|jpeg)$/,
         use: [
-          "file-loader?name=img/[name].[ext]?[hash]",
-          "image-webpack-loader",
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+              fallback: "file-loader",
+              name: "assets/images/[name].[ext]",
+            },
+          },
         ],
       },
     ],

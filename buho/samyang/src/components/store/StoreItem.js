@@ -46,6 +46,16 @@ const StoreItem = ({ items }) => {
           ))}
         </tbody>
       </table>
+      <section>
+        {list.map((item) => (
+          <article>
+            <div>매장명: {item.name}</div>
+            <div>전화번호: {item.tel}</div>
+            <div>주소: {item.address}</div>
+            <div>POS: {item.pos}</div>
+          </article>
+        ))}
+      </section>
     </div>
   );
 };

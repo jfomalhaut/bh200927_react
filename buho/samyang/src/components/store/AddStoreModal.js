@@ -6,6 +6,7 @@ import { useNumberInput } from "../../customs/userNumberInput";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 const AddStoreModal = () => {
+  const [list, setList] = useState([]);
   const [name, onChangeName, setName] = useInput("");
   const [telephone, onChangeTelephone, setTelephone] = useNumberInput("");
   const [address, onChangeAddress, setAddress] = useInput("");
@@ -27,6 +28,11 @@ const AddStoreModal = () => {
       setTelephone("");
       setAddress("");
       setPos("");
+
+      // console.log(payload);
+      const newList = list.concat(payload);
+      setList(newList);
+      console.log(newList);
     }
   };
 
