@@ -1,7 +1,12 @@
 import React from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 
-const StoreItem = ({ items }) => {
+const StoreItem = ({ items, setEditInfo }) => {
+
+  const onEdit = (item) => {
+    setEditInfo(item);
+  };
+
   return (
     <div>
       <table className="centered">
@@ -29,6 +34,7 @@ const StoreItem = ({ items }) => {
                   href="#!"
                   className="secondary-content modal-trigger"
                   href="#edit-store-modal"
+                  onClick={() => onEdit(item)}
                 >
                   <i className="material-icons grey-text">border_color</i>
                 </a>
@@ -46,16 +52,6 @@ const StoreItem = ({ items }) => {
           ))}
         </tbody>
       </table>
-      <section>
-        {list.map((item) => (
-          <article>
-            <div>매장명: {item.name}</div>
-            <div>전화번호: {item.tel}</div>
-            <div>주소: {item.address}</div>
-            <div>POS: {item.pos}</div>
-          </article>
-        ))}
-      </section>
     </div>
   );
 };

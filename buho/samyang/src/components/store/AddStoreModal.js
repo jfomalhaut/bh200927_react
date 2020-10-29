@@ -3,41 +3,30 @@ import styled from "styled-components";
 import { useInput } from "../../customs/useInput";
 import { useNumberInput } from "../../customs/userNumberInput";
 
-import M from "materialize-css/dist/js/materialize.min.js";
-
-const AddStoreModal = () => {
-  const [list, setList] = useState([]);
+const AddStoreModal = ({ onSubmit, type }) => {
   const [name, onChangeName, setName] = useInput("");
   const [telephone, onChangeTelephone, setTelephone] = useNumberInput("");
   const [address, onChangeAddress, setAddress] = useInput("");
   const [pos, onChangePos, setPos] = useNumberInput("");
 
-  const onSubmit = () => {
-    if (name === "" || telephone === "" || address === "" || pos === "") {
-      M.toast({ html: "모든 항목을 채워주세요 !!" });
-    } else {
-      console.log(name, telephone, address, pos);
-      const payload = {
-        name,
-        telephone,
-        address,
-        pos,
-      };
-      // Clear Fields
-      setName("");
-      setTelephone("");
-      setAddress("");
-      setPos("");
+  const insert = () => {
+    switch(type) {
+      case 'add': {
+        onSubmit(name, telephone, address, pos);
+        setName("");
+        setTelephone("");
+        setAddress("");
+        setPos("");
+        break;
+      }
+      case 'edit': {
 
-      // console.log(payload);
-      const newList = list.concat(payload);
-      setList(newList);
-      console.log(newList);
+      }
     }
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <main>
       <div id="add-store-modal" className="modal" style={modalStyle}>
         <div className="modal-content">
           <h5 className="center">마켓 등록하기</h5>
@@ -103,14 +92,14 @@ const AddStoreModal = () => {
         <div className="modal-footer">
           <a
             href="#!"
-            onClick={onSubmit}
+            onClick={() => insert(name, telephone, pos, address)}
             className="modal-close waves-effect blue waves-green btn"
           >
             Enter
           </a>
         </div>
       </div>
-    </form>
+    </main>
   );
 };
 

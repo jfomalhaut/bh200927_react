@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useInput } from "../../customs/useInput";
 import { useNumberInput } from "../../customs/userNumberInput";
 
 import M from "materialize-css/dist/js/materialize.min.js";
 
-const EditStoreModal = () => {
+const EditStoreModal = ({ editInfo = {} }) => {
   const [name, onChangeName, setName] = useInput("");
   const [telephone, onChangeTelephone, setTelephone] = useNumberInput("");
   const [address, onChangeAddress, setAddress] = useInput("");
@@ -29,6 +29,13 @@ const EditStoreModal = () => {
       setPos("");
     }
   };
+
+  useEffect(() => {
+    setName(editInfo.name);
+    setTelephone(editInfo.tel);
+    setAddress(editInfo.address);
+    setPos(editInfo.pos);
+  }, [editInfo]);
 
   return (
     <form onSubmit={onSubmit}>
