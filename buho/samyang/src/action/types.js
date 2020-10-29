@@ -1,9 +1,0 @@
-export const GET_DEALERS = "GET_DEALERS";
-export const ADD_DEALER = "ADD_DEALER";
-export const DELETE_DEALER = "DELETE_DEALER";
-export const SET_CURRENT = "SET_CURRENT";
-export const CLEAR_CURRENT = "CLEAR_CURRENT";
-export const UPDATE_DEALER = "UPDATE_DEALER";
-export const CLEAR_DEALERS = "CLEAR_DEALERS";
-export const SET_LOADING = "SET_LOADING";
-export const DEALERS_ERROR = "DEALERS_ERROR";
