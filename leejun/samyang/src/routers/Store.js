@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useInput } from '../customs/useInput';
 import { useNumberInput } from '../customs/useNumberInput';
 
 const Store = () => {
+	const [list, setList] = useState([]);
 	const [name, onChangeName, setName] = useInput("");
 	const [tel, onChangeTel, setTel] = useNumberInput("");
 	const [address, onChangeAddr, setAddr] = useInput("");
@@ -39,6 +40,7 @@ const Store = () => {
 				</div>
 				<button>등록하기</button>
 			</form>
+			
 		</StoreContainer>
 	);
 };

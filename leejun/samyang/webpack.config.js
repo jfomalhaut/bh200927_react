@@ -26,6 +26,19 @@ module.exports = {
 					'style-loader',
 					'css-loader'
 				]
+			},
+			{
+				test: /\.(pdf|jpg|png|gif|svg|ico|jpeg)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 10000,
+							fallback: 'file-loader',
+							name: 'assets/images/[name].[ext]'
+						}
+					}
+				]
 			}
 		]
 	},

@@ -1,0 +1,32 @@
+<html>
+
+<body>
+	<script>
+		//추가
+		const arrA = [1, 2, 3, 4, 5];
+		const arrB = [6, 7, 8, 9];
+		const arrC = [...arrA, ...arrB];
+		const arrD = arrA.concat(arrB);
+		console.log(arrD);
+
+		//수정
+		const arr = ['민수', '철수', '영희'];
+		const newArr = arr.map(item => item === '철수' ? '길동' : item);
+		const newArr2 = arr.map(item => {
+			if (item === '철수') {
+				return '길동';
+			} else {
+				return item;
+			}
+		});
+		console.log(newArr, newArr2);
+
+		//삭제
+
+		const arr2 = [1,2,3,4,5];
+		const newArr3 = arr2.filter(item => item !== 3);
+		console.log(newArr3);
+	</script>
+</body>
+
+</html>
