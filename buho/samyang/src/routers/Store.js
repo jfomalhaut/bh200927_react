@@ -3,11 +3,6 @@ import styled from "styled-components";
 import AddStoreBtn from "../components/store/AddStoreBtn";
 import AddStoreModal from "../components/store/AddStoreModal";
 import EditStoreModal from "../components/store/EditStoreModal";
-import Preloader from "materialize-css";
-import { getDealers } from "../action/dealerAction";
-
-import "babel-polyfill";
-
 import M from "../../dist/materialize.min";
 import StoreItem from "../components/store/StoreItem";
 import DeleteStoreModal from "../components/store/DeleteStoreModal";

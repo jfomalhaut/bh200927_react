@@ -23,7 +23,7 @@ const StoreItem = ({ items }) => {
               <td>{item.name}</td>
               <td>{item.address}</td>
               <td>{item.tel}</td>
-              <td>{itemli.pos}</td>
+              <td>{item.pos}</td>
               <td className="center">
                 <a
                   href="#!"
