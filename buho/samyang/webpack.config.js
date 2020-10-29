@@ -20,6 +20,13 @@ module.exports = {
         exclude: /node_modules/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+          "file-loader?name=img/[name].[ext]?[hash]",
+          "image-webpack-loader",
+        ],
+      },
     ],
   },
   resolve: {
