@@ -1,16 +1,19 @@
-import React from 'react'
-import { useNumberInput } from '../../customs/userNumberInput'
+import React, { useState } from "react"
 
-const Product = ({ item }) => {
-	const [count, onChangeCount, setCount] = useNumberInput('');
-	return (
-		<div>
-			<span>{item.name}</span>
-			<input value={count} onChange={onChangeCount}/>
-			<span>{item.price}원</span>
-			<span>{item.price * count}원</span>
-		</div>
-	);
-};
+import ProductItem from "./ProductItem"
+
+const DATA = [
+  { id: 1, name: "삼양라면1", price: 1850 },
+  { id: 2, name: "삼양라면2", price: 2850 },
+  { id: 3, name: "삼양라면3", price: 3850 },
+  { id: 4, name: "삼양라면4", price: 4850 },
+  { id: 5, name: "삼양라면5", price: 5850, count: 1 },
+]
+
+const Product = () => {
+  const [product, setProduct] = useState(DATA)
+
+  return <ProductItem items={DATA} key={DATA.id} />
+}
 
 export default Product
