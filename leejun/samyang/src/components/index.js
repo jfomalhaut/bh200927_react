@@ -1,5 +1,6 @@
 import Header from './Header';
+import OrderItem from './OrderItem';
 
 export {
-	Header
+	Header, OrderItem
 };
