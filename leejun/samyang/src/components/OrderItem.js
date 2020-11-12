@@ -11,7 +11,7 @@ const OrderItem = ({ changeCount, index, item: { id, name, price} }) => {
 	}, [count]);
 
 	return (
-		<li key={`ITEM${id}`}>
+		<li>
 			<span>{index + 1}</span>
 			<span>{name}</span>
 			<span>{nf.format(price)}원</span>
