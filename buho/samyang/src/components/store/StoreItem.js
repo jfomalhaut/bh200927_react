@@ -1,17 +1,16 @@
-import React from "react";
-import M from "materialize-css/dist/js/materialize.min.js";
+import React from "react"
+import M from "materialize-css/dist/js/materialize.min.js"
 
 const StoreItem = ({ items, setEditInfo }) => {
-
   const onEdit = (item) => {
-    setEditInfo(item);
-  };
+    setEditInfo(item)
+  }
 
   return (
     <div>
-      <table className="centered">
+      <table className='centered'>
         <thead>
-          <tr className=" grey lighten-5 z-depth-1">
+          <tr className=' grey lighten-5 z-depth-1'>
             <th>No.</th>
             <th>마트명</th>
             <th>주소</th>
@@ -29,23 +28,23 @@ const StoreItem = ({ items, setEditInfo }) => {
               <td>{item.address}</td>
               <td>{item.tel}</td>
               <td>{item.pos}</td>
-              <td className="center">
+              <td className='center'>
                 <a
-                  href="#!"
-                  className="secondary-content modal-trigger"
-                  href="#edit-store-modal"
+                  href='#!'
+                  className='secondary-content modal-trigger'
+                  href='#edit-store-modal'
                   onClick={() => onEdit(item)}
                 >
-                  <i className="material-icons grey-text">border_color</i>
+                  <i className='material-icons grey-text'>border_color</i>
                 </a>
               </td>
-              <td className="center">
+              <td className='center'>
                 <a
-                  href="#!"
-                  className="secondary-content modal-trigger"
-                  href="#delete-store-modal"
+                  href='#!'
+                  className='secondary-content modal-trigger'
+                  href='#delete-store-modal'
                 >
-                  <i className="material-icons grey-text">delete</i>
+                  <i className='material-icons grey-text'>delete</i>
                 </a>
               </td>
             </tr>
@@ -53,7 +52,7 @@ const StoreItem = ({ items, setEditInfo }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default StoreItem;
+export default StoreItem
